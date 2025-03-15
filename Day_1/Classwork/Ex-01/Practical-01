@@ -1,1 +1,14 @@
+Date: 12/03/2025
+Practical No: 01
+Problem Specification: Print the Statements.
+Implementation: 
+                class MyFirstjavaprogram {
+                  	public static void main(String[] args) {
+                  		System.out.println("My First Programme in Java.");
+                  		System.out.println("Hello Java Developers!!!");
+                  	}
+                  }
+Output: My First Programme in Java.
+        Hello Java Developers!!!
 
+Conclusion: In this practical we learn how to print the statements in separate lines.
