@@ -1,0 +1,15 @@
+Date: 12/03/2025
+Practical No: 06
+Problem Specification: Print this statements in new line
+Implementation:
+class StudentDetails{
+	public static void main(String[] args){
+		System.out.println("First Name: Santhiya \nLast name: Thasaraj \nAddress: Sethukudah,Batticaloa");
+	}
+}
+Output:
+      First Name: Santhiya
+      Last Name: Thasaraj
+      Address: Sethukudah,Batticaloa
+
+Conclusion:In this program state that print the statement in new line . I used a syntax "\n".
