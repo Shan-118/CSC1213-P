@@ -1,0 +1,23 @@
+Date: 12/03/2025
+Practical No: 03
+Problem Specification: Solve the arithmetic operators
+Implementation:
+class TwoVariables {
+    public static void main(String[] args) {
+	int num1=13;	
+	int num2=3;
+	
+	System.out.println("Addition: "+(num1+num2));
+	System.out.println("Substraction: "+(num1-num2));
+	System.out.println("Multiplication: "+(num1*num2));
+	System.out.println("Division: "+(num1/num2));
+	System.out.println("Modulus: "+(num1%num2));
+	}
+}
+Output:
+        Addition: 16
+        Subtraction: 10
+        Multiplication: 39
+        Division: 4
+        Modulus: 1
+Conclusion:In this practical say that how to used an arthmetic operations in java programme.
