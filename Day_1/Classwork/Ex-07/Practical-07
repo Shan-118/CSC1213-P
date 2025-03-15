@@ -1,0 +1,34 @@
+Date: 12/03/2025
+Practical No: 07
+Problem Specification: Print the Student details.
+Implementation: 
+
+class StudentDetails2 {
+	public static void main(String args[]) {
+		System.out.println("Name: Thasaraj Santhiya");
+		System.out.println("Registration Number: 2022/ASP/47");
+		System.out.println("Degree Programme: BSc.Computer Science");
+    System.out.println();
+		
+		String Name="Thasaraj Santhiya";
+		String RegNo="2022/ASP/47";
+		String Degree="BSc.Computer Science";
+		
+		System.out.println("Full Name: "+Name);
+		System.out.println("Registration Number: "+RegNo);
+		System.out.println("Degree Programme: "+Degree);
+		
+	}
+}
+		
+Output:
+Name: Thasaraj Santhiya
+Registration Number: 2022/ASP/47
+Degree programme: BSc.Computer Science
+
+Full Name: Thasaraj Santhiya
+Registration Number: 2022/ASP/47
+Degree programme: BSc.Computer Science
+
+Conclusion: In this programme, how to put the break(line space) and continue the next statement.
+We are used for "System.out.println()".
