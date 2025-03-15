@@ -1,0 +1,37 @@
+Date: 12/03/2025
+Practical No: 02
+Problem Specification: How to print different types of data
+Implementation:
+class DataType {
+public static void main(String[] args) {
+	String fac="FAS";
+	int n=3;
+	double p=10.5;
+	int m=5;
+	char w1='&';
+	boolean isTh=true;
+	
+	System.out.println(fac);
+	System.out.println(n);
+	System.out.println(m);
+	System.out.println(w1);
+	System.out.println(isTh);
+	
+	System.out.println("My faculty is "+fac);
+	System.out.println("The result1 is "+(n+m));
+	System.out.println("The result2 is "+(p+m));
+	
+}
+}
+Output:
+	FAS
+	3
+	5
+	&
+	true
+	My faculty is FAS
+	The result1 is 8
+	The result2 is 15.5
+
+Conclusion: In this program say that how to print & apply differents types of data.
+	   
