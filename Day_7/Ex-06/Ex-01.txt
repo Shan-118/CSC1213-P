@@ -1,0 +1,184 @@
+CREATE database LibrarySystem;
+USE  LibrarySystem;
+CREATE table Authors (AuthorId INT PRIMARY KEY, Name VARCHAR(50), BirthYear INT);
+MariaDB [LibrarySystem]> DESC Authors;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| AuthorId  | int(11)     | NO   | PRI | NULL    |       |
+| Name      | varchar(50) | YES  |     | NULL    |       |
+| BirthYear | int(11)     | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+MariaDB [LibrarySystem]> INSERT INTO Authors(AuthorId,Name,BirthYear) VALUES
+    -> (1,'J.K.Rowing',1965),
+    -> (2,'Georage R.R.Martin',1948),
+    -> (3,'Agatha Chiristie',1890),
+    -> (4,'Stepan King',1947),
+    -> (5,'Haruki Murakami',1949);
+	
+MariaDB [LibrarySystem]> select * FROM Authors;
++----------+--------------------+-----------+
+| AuthorId | Name               | BirthYear |
++----------+--------------------+-----------+
+|        1 | J.K.Rowing         |      1965 |
+|        2 | Georage R.R.Martin |      1948 |
+|        3 | Agatha Chiristie   |      1890 |
+|        4 | Stepan King        |      1947 |
+|        5 | Haruki Murakami    |      1949 |
++----------+--------------------+-----------+
+ALTER TABLE Authors
+    -> ADD Country CHAR(20);
+DESC Authors;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| AuthorId  | int(11)     | NO   | PRI | NULL    |       |
+| Name      | varchar(50) | YES  |     | NULL    |       |
+| BirthYear | int(11)     | YES  |     | NULL    |       |
+| Country   | char(20)    | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+select * FROM Authors;
++----------+--------------------+-----------+---------+
+| AuthorId | Name               | BirthYear | Country |
++----------+--------------------+-----------+---------+
+|        1 | J.K.Rowing         |      1965 | NULL    |
+|        2 | Georage R.R.Martin |      1948 | NULL    |
+|        3 | Agatha Chiristie   |      1890 | NULL    |
+|        4 | Stepan King        |      1947 | NULL    |
+|        5 | Haruki Murakami    |      1949 | NULL    |
++----------+--------------------+-----------+---------+
+ALTER TABLE Authors
+    -> ADD Age INT
+    -> AFTER Name;
+select * FROM Authors;
++----------+--------------------+------+-----------+---------+
+| AuthorId | Name               | Age  | BirthYear | Country |
++----------+--------------------+------+-----------+---------+
+|        1 | J.K.Rowing         | NULL |      1965 | NULL    |
+|        2 | Georage R.R.Martin | NULL |      1948 | NULL    |
+|        3 | Agatha Chiristie   | NULL |      1890 | NULL    |
+|        4 | Stepan King        | NULL |      1947 | NULL    |
+|        5 | Haruki Murakami    | NULL |      1949 | NULL    |
++----------+--------------------+------+-----------+---------+
+ALTER TABLE Authors
+    -> ADD FirstName VARCHAR(20)
+    -> FIRST;
+ select * FROM Authors;
++-----------+----------+--------------------+------+-----------+---------+
+| FirstName | AuthorId | Name               | Age  | BirthYear | Country |
++-----------+----------+--------------------+------+-----------+---------+
+| NULL      |        1 | J.K.Rowing         | NULL |      1965 | NULL    |
+| NULL      |        2 | Georage R.R.Martin | NULL |      1948 | NULL    |
+| NULL      |        3 | Agatha Chiristie   | NULL |      1890 | NULL    |
+| NULL      |        4 | Stepan King        | NULL |      1947 | NULL    |
+| NULL      |        5 | Haruki Murakami    | NULL |      1949 | NULL    |
++-----------+----------+--------------------+------+-----------+---------+UPDATE Authors
+  -> SET country='UK'
+  -> WHERE AuthorId=1;
+select * FROM Authors;
++-----------+----------+--------------------+------+-----------+---------+
+| FirstName | AuthorId | Name               | Age  | BirthYear | Country |
++-----------+----------+--------------------+------+-----------+---------+
+| NULL      |        1 | J.K.Rowing         | NULL |      1965 | UK      |
+| NULL      |        2 | Georage R.R.Martin | NULL |      1948 | NULL    |
+| NULL      |        3 | Agatha Chiristie   | NULL |      1890 | NULL    |
+| NULL      |        4 | Stepan King        | NULL |      1947 | NULL    |
+| NULL      |        5 | Haruki Murakami    | NULL |      1949 | NULL    |
++-----------+----------+--------------------+------+-----------+---------+ALTER TABLE Authors
+   -> DROP column age;
+ALTER TABLE Authors
+    -> DROP column Country;
+	
+select * FROM Authors;
++-----------+----------+--------------------+-----------+
+| FirstName | AuthorId | Name               | BirthYear |
++-----------+----------+--------------------+-----------+
+| NULL      |        1 | J.K.Rowing         |      1965 |
+| NULL      |        2 | Georage R.R.Martin |      1948 |
+| NULL      |        3 | Agatha Chiristie   |      1890 |
+| NULL      |        4 | Stepan King        |      1947 |
+| NULL      |        5 | Haruki Murakami    |      1949 |
++-----------+----------+--------------------+-----------+
+ALTER TABLE Authors
+    -> ADD Age INT
+    -> AFTER Name,
+    -> ADD Country VARCHAR(20);
+
+ DESC Authors;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| FirstName | varchar(20) | YES  |     | NULL    |       |
+| AuthorId  | int(11)     | NO   | PRI | NULL    |       |
+| Name      | varchar(50) | YES  |     | NULL    |       |
+| Age       | int(11)     | YES  |     | NULL    |       |
+| BirthYear | int(11)     | YES  |     | NULL    |       |
+| Country   | varchar(20) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+ALTER table Authors
+   -> MODIFY BirthYear INT(4);
+DESC Authors;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| FirstName | varchar(20) | YES  |     | NULL    |       |
+| AuthorId  | int(11)     | NO   | PRI | NULL    |       |
+| Name      | varchar(50) | YES  |     | NULL    |       |
+| Age       | int(11)     | YES  |     | NULL    |       |
+| BirthYear | int(4)      | YES  |     | NULL    |       |
+| Country   | varchar(20) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+ 
+ 
+ALTER TABLE Authors
+   -> CHANGE column Age Author_Age INT;
+ select * from Authors;
++-----------+----------+--------------------+------------+-----------+---------+
+| FirstName | AuthorId | Name               | Author_Age | BirthYear | Country |
++-----------+----------+--------------------+------------+-----------+---------+
+| NULL      |        1 | J.K.Rowing         |       NULL |      1965 | NULL    |
+| NULL      |        2 | Georage R.R.Martin |       NULL |      1948 | NULL    |
+| NULL      |        3 | Agatha Chiristie   |       NULL |      1890 | NULL    |
+| NULL      |        4 | Stepan King        |       NULL |      1947 | NULL    |
+| NULL      |        5 | Haruki Murakami    |       NULL |      1949 | NULL    |
++-----------+----------+--------------------+------------+-----------+---------+
+
+CREATE TABLE Employee(Emp_Id INT(1),First_Name VARCHAR(15),Last_Name VARCHAR(15),Hire_Date DATE);
+
+DESC Employee;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| Emp_Id     | int(1)      | YES  |     | NULL    |       |
+| First_Name | varchar(15) | YES  |     | NULL    |       |
+| Last_Name  | varchar(15) | YES  |     | NULL    |       |
+| Hire_Date  | date        | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+INSERT INTO Employee(Emp_Id,First_Name,Last_Name,Hire_Date) VALUES
+    -> (1,'Alise','Johnson','2021-01-15'),
+    -> (2,'Bob','Smith','2020-07-30'),
+    -> (3,'Carla','Garcia','2022-03-10'),
+    -> (4,'David','Lee','2019-11-05');
+
+Alter Table Employee
+    -> ADD PRIMARY KEY (Emp_Id);
+DESC Employee;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| Emp_Id     | int(1)      | NO   | PRI | NULL    |       |
+| First_Name | varchar(15) | YES  |     | NULL    |       |
+| Last_Name  | varchar(15) | YES  |     | NULL    |       |
+| Hire_Date  | date        | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+Alter Table Employee
+    -> ADD Department VARCHAR(30)
+    -> NOT NULL DEfault 'General' AFTER Last_Name;
+select * FROM Employee;
++--------+------------+-----------+------------+------------+
+| Emp_Id | First_Name | Last_Name | Department | Hire_Date  |
++--------+------------+-----------+------------+------------+
+|      1 | Alise      | Johnson   | General    | 2021-01-15 |
+|      2 | Bob        | Smith     | General    | 2020-07-30 |
+|      3 | Carla      | Garcia    | General    | 2022-03-10 |
+|      4 | David      | Lee       | General    | 2019-11-05 |
++--------+------------+-----------+------------+------------+
